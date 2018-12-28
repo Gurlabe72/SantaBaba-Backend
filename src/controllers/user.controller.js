@@ -10,7 +10,10 @@ const getAllUsers = (req, res, next) => {
         next(error)
     })
 }
-
+const getOneUser = (req, res, next) => {
+    const id = req.params;
+    let promise = model.getOneUser(id)
+}
 module.exports = {
     getAllUsers,
 }
