@@ -22,9 +22,6 @@ const UsersSchema = new Schema({
         type: String,
         required: true
     },
-    token: [],
-    followers: [],
-    following: [],
     date: {
         type: Date,
         default: Date.now

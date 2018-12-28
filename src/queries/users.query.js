@@ -9,6 +9,14 @@ const getAllUsers = () => {
             return users
         })
 }
+const getOneUser = (id) => {
+    return Users.findById({ _id: id })
+        .then(user => {
+            return user
+        })
+}
+
 module.exports = {
-    getAllUsers
+    getAllUsers,
+    getOneUser
 }
