@@ -23,6 +23,7 @@ mongoose.connect(db, { useNewUrlParser: true })
 
 //using express to 'activate' body parser cors and morgan with App.use
 app.use('/api/users', users)
+
 // app.use('/api/posts', posts)
 
 

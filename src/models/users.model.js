@@ -20,7 +20,26 @@ const getOneUser = (id) => {
             result
     })
 }
+const createUser = () => {
+    let user = userQuery.createUser(userInfo, hashPassword)
+
+    return user.then(result => {
+        return !result
+            ? { error: 'error creating user', status: 404 }
+            : result
+    })
+}
+const deleteUser = (id) => {
+    let user = userQuery.deleteUser(id)
+
+    return user.then(result => {
+        return result
+    })
+}
+
 module.exports = {
     getAllUsers,
-    getOneUser
+    getOneUser,
+    createUser,
+    deleteUser
 }

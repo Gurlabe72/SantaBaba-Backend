@@ -21,7 +21,33 @@ const getOneUser = (req, res, next) => {
         next(err)
     })
 }
+const createUser = (req, res, next) => {
+    const body = req;
+
+    let promise = model.createUser(body);
+
+    promise.then(result => {
+        return result.error ? next(result) : res.status(200).json({ result, message: 'created a post' })
+    })
+    promise.catch(error => {
+        next(error)
+    })
+
+}
+const deleteUser = (req, res, next) => {
+    const id = req.params;
+    let promise = model.deleteUser(id)
+
+    promise.then(result => {
+        return result.err ? next(result) : res.status(200).json(result)
+    })
+    promise.catch(err => {
+        next(err)
+    })
+}
 module.exports = {
     getAllUsers,
-    getOneUser
+    getOneUser,
+    createUser,
+    deleteUser
 }

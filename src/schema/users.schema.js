@@ -5,7 +5,6 @@
 //DISREGARD THE TOKEN FOR NOW 
 //the NODE module 'mongoose' is used in SCHEMA 
 const mongoose = require('mongoose');
-const Users = require('./Users');
 const Schema = mongoose.Schema
 
 

@@ -15,8 +15,25 @@ const getOneUser = (id) => {
             return user
         })
 }
+const createUser = (id) => {
+    let user = userQuery.getUser(id);
 
+    return user.then(result => {
+        return result === null ?
+            { err, status: 404 } :
+            result
+    })
+}
+
+const deleteUser = (id) => {
+    return Users.findById({ _id: id })
+        .then(user => {
+            return !user ? { status: 404, error: 'user not found' } : user.remove()
+        })
+}
 module.exports = {
     getAllUsers,
-    getOneUser
+    getOneUser,
+    createUser,
+    deleteUser
 }
