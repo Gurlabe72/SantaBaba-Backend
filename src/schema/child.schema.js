@@ -17,9 +17,14 @@ const ChildsSchema = new Schema({
         type: String,
         required: true
     },
-    childOf: {
-        type:
-    }
+    childOf: [{
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    }],
+    letterToSanta: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now
