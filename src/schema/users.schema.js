@@ -13,11 +13,7 @@ const UsersSchema = new Schema({
         type: String,
         required: true
     },
-    first: {
-        type: String,
-        required: true
-    },
-    last: {
+    name: {
         type: String,
         required: true
     },
@@ -26,6 +22,10 @@ const UsersSchema = new Schema({
         required: true
     },
     password: {
+        type: String,
+        required: true
+    },
+    password2: {
         type: String,
         required: true
     },

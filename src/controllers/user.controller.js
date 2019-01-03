@@ -1,5 +1,5 @@
-//in the controllers folder, this is  take care our err handling here with the 
-//.then .catch fucntions with the  appropriate errror numbers 
+const model = require('../models//users.model')
+
 const getAllUsers = (req, res, next) => {
     let promise = model.getAllUsers()
 
@@ -10,8 +10,9 @@ const getAllUsers = (req, res, next) => {
         next(err)
     })
 }
+
 const getOneUser = (req, res, next) => {
-    const id = req.params;
+    const id = req.params.id;
     let promise = model.getOneUser(id)
 
     promise.then(result => {
@@ -22,7 +23,7 @@ const getOneUser = (req, res, next) => {
     })
 }
 const createUser = (req, res, next) => {
-    const body = req;
+    const body = req.body;
 
     let promise = model.createUser(body);
 
@@ -35,7 +36,7 @@ const createUser = (req, res, next) => {
 
 }
 const deleteUser = (req, res, next) => {
-    const id = req.params;
+    const id = req.params.id;
     let promise = model.deleteUser(id)
 
     promise.then(result => {

@@ -8,8 +8,9 @@ const ctrl = require('../controllers/user.controller')
 //The Routes for a user is written like so, below.
 router.get('/', ctrl.getAllUsers),
     router.get('/:id', ctrl.getOneUser),
-    router.delete('/:id', ctrl.deleteUser),
-    router.post('/register', ctrl.createUser)
+    // router.post('/', ctrl.createUser),
+    router.delete('/:id', ctrl.deleteUser)
+
 
 
 module.exports = router 

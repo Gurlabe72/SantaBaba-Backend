@@ -1,7 +1,7 @@
 //quieries is where you DEFINE all of your CRUD
 //functionalities. check out the example below 
 //to get an idea of what that looks like 
-const Users = require('../schemas/user.schemas');
+const Users = require('../schema/users.schema');
 
 const getAllUsers = () => {
     return Users.find()
@@ -15,15 +15,6 @@ const getOneUser = (id) => {
             return user
         })
 }
-const createUser = (id) => {
-    let user = userQuery.getUser(id);
-
-    return user.then(result => {
-        return result === null ?
-            { err, status: 404 } :
-            result
-    })
-}
 
 const deleteUser = (id) => {
     return Users.findById({ _id: id })
@@ -34,6 +25,5 @@ const deleteUser = (id) => {
 module.exports = {
     getAllUsers,
     getOneUser,
-    createUser,
     deleteUser
 }

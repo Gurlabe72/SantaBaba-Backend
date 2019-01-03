@@ -6,8 +6,8 @@ const keys = require('../../../config/keys');
 const passport = require('passport');
 
 //Bring in your Validation folder
-const validationRegisterInput = require("../validation/validation.register");
-const validationLoginInput = require("../validation/validation.login");
+const validationRegisterInput = require("../../validation/validation.register");
+const validationLoginInput = require("../../validation/validation.login");
 
 //bring in the User Model 
 const User = require("../models/users.model");
@@ -27,9 +27,11 @@ router.post('/register', (req, res) => {
             }
 
             const newUser = new User({
+                username: req.body.username,
                 name: req.body.name,
                 email: req.body.email,
-                password: req.body.email
+                password: req.body.password,
+                password2: req.body.password2
             });
 
             //hash password before sotring into database 
@@ -44,4 +46,5 @@ router.post('/register', (req, res) => {
                 })
             })
         })
-}); 
+});
+module.exports = router;
