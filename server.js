@@ -12,7 +12,7 @@ const passport = require('passport');
 
 //routes endpoints
 const users = require('./src/routes/users.route');
-// const posts = require('./src/routes/posts.route');
+//const posts = require('./src/routes/posts.route');
 
 
 const mlabKey = require('./config/keys');
