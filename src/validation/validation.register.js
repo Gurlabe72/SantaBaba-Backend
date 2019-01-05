@@ -6,7 +6,7 @@ module.exports = function validateReisterInput(data) {
 
     //have empty objects set to empty strings so validator can be used
 
-    data.name = !!isEmpty(data.name) ? data.name : "";
+    data.name = !isEmpty(data.name) ? data.name : "";
     data.email = !isEmpty(data.email) ? data.email : "";
     data.password = !isEmpty(data.password) ? data.password : "";
     data.password2 = !isEmpty(data.password) ? data.password2 : "";
@@ -25,7 +25,7 @@ module.exports = function validateReisterInput(data) {
     if (Validator.isEmpty(data.password)) {
         errors.password = "Password Field is required "
     }
-    if (!Validator.isEmpty(data.password2)) {
+    if (Validator.isEmpty(data.password2)) {
         errors.password = "Please confirm your password"
     }
     if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
@@ -34,6 +34,7 @@ module.exports = function validateReisterInput(data) {
     if (!Validator.equals(data.password, data.password2)) {
         errors.password2 = "Password must match";
     }
+    console.log(errors)
     return {
         errors,
         isValid: isEmpty(errors)
