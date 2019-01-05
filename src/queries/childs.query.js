@@ -1,7 +1,7 @@
 //quieries is where you DEFINE all of your CRUD
 //functionalities. check out the example below 
 //to get an idea of what that looks like 
-const Childs = require('../schemas/child.schemas');
+const Childs = require('../schema/childs.schema');
 
 const getAllChilds = () => {
     return Childs.find()

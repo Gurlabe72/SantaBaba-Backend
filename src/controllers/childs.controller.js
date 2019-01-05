@@ -1,3 +1,5 @@
+const model = require('../models/childs.model');
+
 const getAllChilds = (req, res, next) => {
     let promise = model.getAllChilds()
 

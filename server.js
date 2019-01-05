@@ -15,7 +15,7 @@ app.use(morgan('dev'));
 
 //routes endpoints
 const users = require('./src/routes/users.route');
-//const posts = require('./src/routes/posts.route');
+const childs = require('./src/routes/childs.route');
 
 
 // const mlabKey = require('../config/keys');
@@ -33,7 +33,7 @@ app.use(passport.initialize());
 require('./src/config/passport')(passport);
 //using express to 'activate' body parser cors and morgan with App.use
 app.use('/users', users)
-app.use('/register', users)
+app.use('/child', childs)
 app.use((err, req, res, next) => {
     res.status(err.status).json(err)
 })

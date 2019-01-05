@@ -1,6 +1,7 @@
 
 const userQuery = require('../queries/users.query');
 const bcrypt = require('bcryptjs');
+
 const getAllUsers = () => {
     let users = userQuery.getAllUsers();
 
@@ -21,22 +22,6 @@ const getOneUser = (id) => {
     })
 }
 
-// const createUser = (userInfo) => {
-//     return userQuery.findByEmail({ email: userInfo.email })
-//         .then(user => {
-//             if (user) {
-//                 return { email: "email already exists" }
-//             } else {
-//                 let user = userQuery.createUser(userInfo)
-//                 console.log("HEY CARRRLLL !! ", user);
-//                 return user.then(result => {
-//                     return !result
-//                         ? { error: 'error creating user', status: 404 }
-//                         : result
-//                 })
-//             }
-//         })
-// }
 const createUser = async (userInfo) => {
     const emailTaken = await userQuery.findByEmail({ email: userInfo.email })
     console.log(emailTaken)

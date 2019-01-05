@@ -1,4 +1,4 @@
-const model = require('../models//users.model')
+const model = require('../models/users.model')
 //checking for validation
 const validateRegisterInput = require("../validation/validation.register");
 // const validateLoginInput = require("../../validation/validation.login");
