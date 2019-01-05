@@ -1,3 +1,4 @@
+const model = require('../models/lists.model')
 //in the controllers folder, this is  take care our err handling here with the 
 //.then .catch fucntions with the  appropriate errror numbers 
 const getAllLists = (req, res, next) => {
@@ -11,7 +12,7 @@ const getAllLists = (req, res, next) => {
     })
 }
 const getOneList = (req, res, next) => {
-    const id = req.params;
+    const id = req.params.id;
     let promise = model.getOneList(id)
 
     promise.then(result => {
