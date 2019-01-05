@@ -11,7 +11,7 @@ const getAllChilds = (req, res, next) => {
     })
 }
 const getOneChild = (req, res, next) => {
-    const id = req.params;
+    const id = req.params.id;
     let promise = model.getOneChild(id)
 
     promise.then(result => {
