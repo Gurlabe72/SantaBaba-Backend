@@ -9,12 +9,14 @@ const getAllLists = () => {
             return lists
         })
 }
+
 const getOneList = (id) => {
     return Lists.findById({ _id: id })
         .then(list => {
             return list
         })
 }
+
 const createList = (id) => {
     let List = listQuery.getList(id);
 

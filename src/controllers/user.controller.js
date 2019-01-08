@@ -44,8 +44,8 @@ const createUser = (req, res, next) => {
     promise.catch(error => {
         next(error)
     })
-
 }
+
 const deleteUser = (req, res, next) => {
     const id = req.params.id;
     let promise = model.deleteUser(id)

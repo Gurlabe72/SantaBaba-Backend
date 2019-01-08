@@ -34,10 +34,10 @@ const createList = (req, res, next) => {
     promise.catch(error => {
         next(error)
     })
-
 }
+
 const deleteList = (req, res, next) => {
-    const id = req.params;
+    const id = req.params.id;
     let promise = model.deleteList(id)
 
     promise.then(result => {

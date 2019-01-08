@@ -7,7 +7,7 @@ const ctrl = require('../controllers/lists.controller')
 
 router.get('/', ctrl.getAllLists)
 router.get('/:id', ctrl.getOneList),
-    router.delete('/:id', ctrl.deleteList),
     router.post('/', ctrl.createList)
+router.delete('/:id', ctrl.deleteList),
 
-module.exports = router 
+    module.exports = router 

@@ -32,10 +32,10 @@ const createChild = (req, res, next) => {
     promise.catch(error => {
         next(error)
     })
-
 }
+
 const deleteChild = (req, res, next) => {
-    const id = req.params;
+    const id = req.params.id;
     let promise = model.deleteChild(id)
 
     promise.then(result => {

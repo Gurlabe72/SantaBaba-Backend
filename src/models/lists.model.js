@@ -19,6 +19,7 @@ const getOneList = (id) => {
             result
     })
 }
+
 const createList = () => {
     let list = listQuery.createList(listInfo, hashPassword)
 
@@ -28,6 +29,7 @@ const createList = () => {
             : result
     })
 }
+
 const deleteList = (id) => {
     let list = listQuery.deleteList(id)
 

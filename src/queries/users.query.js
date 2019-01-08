@@ -10,12 +10,14 @@ const getAllUsers = () => {
             return users
         })
 }
+
 const getOneUser = (id) => {
     return Users.findById({ _id: id })
         .then(user => {
             return user
         })
 }
+
 const findByEmail = (email) => {
     return Users.findOne({ _email: email })
         .then(user => {
@@ -33,7 +35,6 @@ const createUser = (payload) => {
     })
 
     newUser.save().catch(error => error)
-
 
     return newUser;
 }
