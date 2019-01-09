@@ -19,9 +19,9 @@ const createShippingDock = (payload) => {
     const newShippingDock = new ShippingDocks({
         userId: payload.userId,
         childId: payload.childId,
-        nicePost: payload.nicePost,
-        description: payload.description,
-        score: payload.score
+        timeIn: payload.timeIn,
+        delayTime: payload.delayTime,
+        amenities: payload.amenities
     })
     console.log(newShippingDock)
     newShippingDock.save().catch(error => console.log(error)

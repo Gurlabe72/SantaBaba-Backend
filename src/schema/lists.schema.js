@@ -21,13 +21,17 @@ const ListsSchema = new Schema({
         type: String,
         required: true
     },
+    parkingFee: {
+        type: Number,
+        min: 0, max: 10000
+    },
     amenities: {
         type: String,
         required: true
     },
-    parkingFee: {
-        type: Number,
-        min: 0, max: 10000
+    comments: {
+        type: String,
+        required: false
     },
     date: {
         type: Date,

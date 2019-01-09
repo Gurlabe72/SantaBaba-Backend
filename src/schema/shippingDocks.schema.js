@@ -21,6 +21,7 @@ const ShippingDocksSchema = new Schema({
         type: String,
         required: true
     },
+    //calculated on the front end
     delayTime: {
         type: String,
         required: true
