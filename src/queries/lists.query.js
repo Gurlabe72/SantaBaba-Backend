@@ -17,14 +17,20 @@ const getOneList = (id) => {
         })
 }
 
-const createList = (id) => {
-    let List = listQuery.getList(id);
-
-    return List.then(result => {
-        return result === null ?
-            { err, status: 404 } :
-            result
+const createList = (payload) => {
+    console.log(payload, "we are iun the query")
+    const newList = new Lists({
+        userId: payload.userId,
+        childId: payload.childId,
+        nicePost: payload.nicePost,
+        description: payload.description,
+        score: payload.score
     })
+    console.log(newList)
+    newList.save().catch(error => console.log(error)
+    )
+
+    return newList;
 }
 
 const deleteList = (id) => {

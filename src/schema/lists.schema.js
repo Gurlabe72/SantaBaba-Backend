@@ -9,23 +9,26 @@ const Schema = mongoose.Schema
 
 
 const ListsSchema = new Schema({
-    username: [{
+    userId: [{
         type: Schema.Types.ObjectId,
         ref: 'user'
     }],
-    child: [{
+    childId: [{
         type: Schema.Types.ObjectId,
         ref: 'child'
     }],
-    NaughtyPost: {
+    gasPrice: {
         type: String,
-        required: false
+        required: true
     },
-    NicePost: {
+    amenities: {
         type: String,
-        required: false
+        required: true
     },
-
+    parkingFee: {
+        type: Number,
+        min: 0, max: 10000
+    },
     date: {
         type: Date,
         default: Date.now

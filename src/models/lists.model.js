@@ -20,8 +20,9 @@ const getOneList = (id) => {
     })
 }
 
-const createList = () => {
-    let list = listQuery.createList(listInfo, hashPassword)
+const createList = (body) => {
+    console.log(body, "we are iun the model")
+    let list = listQuery.createList(body)
 
     return list.then(result => {
         return !result

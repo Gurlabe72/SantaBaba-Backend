@@ -8,15 +8,26 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
 
-const ChildsSchema = new Schema({
-    user_id: [{
+const ShippingDocksSchema = new Schema({
+    userId: [{
         type: Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'user'
     }],
-    //for now 
-    location: {
+    childId: [{
+        type: Schema.Types.ObjectId,
+        ref: 'child'
+    }],
+    timeIn: {
         type: String,
         required: true
+    },
+    delayTime: {
+        type: String,
+        required: true
+    },
+    amenities: {
+        type: Number,
+        min: 0, max: 10000
     },
     date: {
         type: Date,
@@ -24,4 +35,4 @@ const ChildsSchema = new Schema({
     }
 });
 
-module.exports = Childs = mongoose.model('childs', ChildsSchema);
+module.exports = ShippingDock = mongoose.model('shippingDocks', ShippingDocksSchema);

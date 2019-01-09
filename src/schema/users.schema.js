@@ -25,6 +25,10 @@ const UsersSchema = new Schema({
         type: String,
         required: true
     },
+    isDriver: {
+        type: Boolean,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now
