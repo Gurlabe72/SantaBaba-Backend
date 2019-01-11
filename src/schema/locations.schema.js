@@ -8,30 +8,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
 
-const ListsSchema = new Schema({
-    userId: [{
+const LocationsSchema = new Schema({
+    user_id: [{
         type: Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'users'
     }],
-    childId: [{
-        type: Schema.Types.ObjectId,
-        ref: 'child'
-    }],
-    gasPrice: {
+    //for now 
+    location: {
         type: String,
         required: true
-    },
-    parkingFee: {
-        type: Number,
-        min: 0, max: 10000
-    },
-    amenities: {
-        type: String,
-        required: true
-    },
-    comments: {
-        type: String,
-        required: false
     },
     date: {
         type: Date,
@@ -39,4 +24,4 @@ const ListsSchema = new Schema({
     }
 });
 
-module.exports = Lists = mongoose.model('lists', ListsSchema);
+module.exports = Locations = mongoose.model('locations', LocationsSchema);

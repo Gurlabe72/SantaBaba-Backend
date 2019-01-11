@@ -1,8 +1,8 @@
-const model = require('../models/lists.model')
+const model = require('../models/truckStops.model')
 //in the controllers folder, this is  take care our err handling here with the 
 //.then .catch fucntions with the  appropriate errror numbers 
-const getAllLists = (req, res, next) => {
-    let promise = model.getAllLists()
+const getAllTruckStops = (req, res, next) => {
+    let promise = model.getAllTruckStops()
 
     promise.then(result => {
         return result.err ? next(result) : res.status(200).json(result)
@@ -11,9 +11,9 @@ const getAllLists = (req, res, next) => {
         next(err)
     })
 }
-const getOneList = (req, res, next) => {
+const getOneTruckStop = (req, res, next) => {
     const id = req.params.id;
-    let promise = model.getOneList(id)
+    let promise = model.getOneTruckStop(id)
 
     promise.then(result => {
         return result.err ? next(result) : res.status(200).json(result)
@@ -23,10 +23,10 @@ const getOneList = (req, res, next) => {
     })
 }
 
-const createList = (req, res, next) => {
+const createTruckStop = (req, res, next) => {
     const body = req.body;
     console.log(body)
-    let promise = model.createList(body);
+    let promise = model.createTruckStop(body);
 
     promise.then(result => {
         return result.error ? next(result) : res.status(200).json({ result, message: 'created a post' })
@@ -36,9 +36,9 @@ const createList = (req, res, next) => {
     })
 }
 
-const deleteList = (req, res, next) => {
+const deleteTruckStop = (req, res, next) => {
     const id = req.params.id;
-    let promise = model.deleteList(id)
+    let promise = model.deleteTruckStop(id)
 
     promise.then(result => {
         return result.err ? next(result) : res.status(200).json(result)
@@ -48,8 +48,8 @@ const deleteList = (req, res, next) => {
     })
 }
 module.exports = {
-    getAllLists,
-    getOneList,
-    createList,
-    deleteList
+    getAllTruckStops,
+    getOneTruckStop,
+    createTruckStop,
+    deleteTruckStop
 }

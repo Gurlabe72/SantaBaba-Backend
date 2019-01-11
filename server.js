@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3333;
 
 
 //dependencies 
@@ -17,8 +17,8 @@ app.use(morgan('dev'));
 
 //routes endpoints
 const users = require('./src/routes/users.route');
-const childs = require('./src/routes/childs.route');
-const lists = require('./src/routes/lists.route')
+const locations = require('./src/routes/locations.route');
+const truckStops = require('./src/routes/truckStops.route')
 
 
 // const mlabKey = require('../config/keys');
@@ -38,8 +38,8 @@ app.use(passport.initialize());
 require('./src/config/passport')(passport);
 //using express to 'activate' body parser cors and morgan with App.use
 app.use('/users', users)
-app.use('/child', childs)
-app.use('/lists', lists)
+app.use('/location', locations)
+app.use('/truckStops', truckStops)
 app.use((err, req, res, next) => {
     res.status(err.status).json(err)
 })

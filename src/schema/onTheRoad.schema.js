@@ -7,9 +7,9 @@ const OnTheRoadsSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'user'
     }],
-    childId: [{
+    locationId: [{
         type: Schema.Types.ObjectId,
-        ref: 'child'
+        ref: 'locations'
     }],
     //accidents hazards and delays 
     traffic: {
@@ -26,4 +26,4 @@ const OnTheRoadsSchema = new Schema({
     }
 });
 
-module.exports = Lists = mongoose.model('onTheRoad', OnTheRoadsSchema);
+module.exports = truckStops = mongoose.model('onTheRoad', OnTheRoadsSchema);
