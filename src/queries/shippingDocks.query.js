@@ -18,7 +18,7 @@ const createShippingDock = (payload) => {
     console.log(payload, "we are iun the query")
     const newShippingDock = new ShippingDocks({
         userId: payload.userId,
-        childId: payload.childId,
+        locationId: payload.locationId,
         timeIn: payload.timeIn,
         delayTime: payload.delayTime,
         amenities: payload.amenities

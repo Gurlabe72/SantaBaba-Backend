@@ -1,7 +1,7 @@
-const model = require('../models/childs.model');
+const model = require('../models/locations.model');
 
-const getAllChilds = (req, res, next) => {
-    let promise = model.getAllChilds()
+const getAllLocations = (req, res, next) => {
+    let promise = model.getAllLocations()
 
     promise.then(result => {
         return result.err ? next(result) : res.status(200).json(result)
@@ -10,9 +10,9 @@ const getAllChilds = (req, res, next) => {
         next(err)
     })
 }
-const getOneChild = (req, res, next) => {
+const getOneLocation = (req, res, next) => {
     const id = req.params.id;
-    let promise = model.getOneChild(id)
+    let promise = model.getOneLocation(id)
 
     promise.then(result => {
         return result.err ? next(result) : res.status(200).json(result)
@@ -21,10 +21,10 @@ const getOneChild = (req, res, next) => {
         next(err)
     })
 }
-const createChild = (req, res, next) => {
+const createLocation = (req, res, next) => {
     const body = req;
 
-    let promise = model.createChild(body);
+    let promise = model.createLocation(body);
 
     promise.then(result => {
         return result.error ? next(result) : res.status(200).json({ result, message: 'created a post' })
@@ -34,9 +34,9 @@ const createChild = (req, res, next) => {
     })
 }
 
-const deleteChild = (req, res, next) => {
+const deleteLocation = (req, res, next) => {
     const id = req.params.id;
-    let promise = model.deleteChild(id)
+    let promise = model.deleteLocation(id)
 
     promise.then(result => {
         return result.err ? next(result) : res.status(200).json(result)
@@ -46,8 +46,8 @@ const deleteChild = (req, res, next) => {
     })
 }
 module.exports = {
-    getAllChilds,
-    getOneChild,
-    createChild,
-    deleteChild
+    getAllLocations,
+    getOneLocation,
+    createLocation,
+    deleteLocation
 }

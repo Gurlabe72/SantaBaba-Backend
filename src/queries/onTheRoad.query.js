@@ -21,7 +21,7 @@ const createOnTheRoad = (payload) => {
     console.log(payload, "we are iun the query")
     const newOnTheRoad = new OnTheRoads({
         userId: payload.userId,
-        childId: payload.childId,
+        locationId: payload.locationId,
         nicePost: payload.nicePost,
         description: payload.description,
         score: payload.score
