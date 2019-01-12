@@ -1,8 +1,8 @@
 //quieries is where you DEFINE all of your CRUD
 //functionalities. check out the example below 
 //to get an idea of what that looks like 
-const bcrypt = require('bcryptjs')
-const Users = require('../schema/users.schema');
+// const bcrypt = require('bcryptjs')
+const { mConn, Users } = require('../schema/users.schema');
 
 const getAllUsers = () => {
     return Users.find()
@@ -11,12 +11,12 @@ const getAllUsers = () => {
         })
 }
 
-const getOneUser = (id) => {
-    return Users.findById({ _id: id })
-        .then(user => {
-            return user
-        })
-}
+// const getOneUser = (id) => {
+//     return Users.findById({ _id: id })
+//         .then(user => {
+//             return user
+//         })
+// }
 
 const findByEmail = (email) => {
     return Users.findOne({ _email: email })
@@ -24,31 +24,36 @@ const findByEmail = (email) => {
             return user
         })
 }
-const createUser = (payload) => {
-
+const createUser = (userInfo) => {
+    // console.log(userInfo, '#####')
     const newUser = new Users({
-        username: payload.username,
-        name: payload.name,
-        email: payload.email,
-        password: payload.password,
-        password2: payload.password2
+        username: userInfo.username,
+        name: userInfo.name,
+        email: userInfo.email,
+        password: userInfo.password
+        // isDriver: userInfo.isDriver,
+        // date: Date.now
     })
-
-    newUser.save().catch(error => error)
-
+    mConn.collection(drivers).insert(newUser)
+    newUser.save(function (err) {
+        if (err) {
+            return next(err);
+        }
+        return
+    })
     return newUser;
 }
 
-const deleteUser = (id) => {
-    return Users.findById({ _id: id })
-        .then(user => {
-            return !user ? { status: 404, error: 'user not found' } : user.remove()
-        })
-}
+// const deleteUser = (id) => {
+//     return Users.findById({ _id: id })
+//         .then(user => {
+//             return !user ? { status: 404, error: 'user not found' } : user.remove()
+//         })
+// }
 module.exports = {
     getAllUsers,
-    getOneUser,
+    // getOneUser,
     findByEmail,
     createUser,
-    deleteUser
+    // deleteUser
 }

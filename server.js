@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3333;
+const port = 3333;
 
 
 //dependencies 
@@ -17,19 +17,21 @@ app.use(morgan('dev'));
 
 //routes endpoints
 const users = require('./src/routes/users.route');
-const locations = require('./src/routes/locations.route');
-const truckStops = require('./src/routes/truckStops.route')
+// const locations = require('./src/routes/locations.route');
+// const truckStops = require('./src/routes/truckStops.route')
 
 
 // const mlabKey = require('../config/keys');
-const db = require('./src/config/keys');
-console.log(db)
+// const db = require('./src/config/keys');
+// console.log(db)
 
 
-console.log(db)
-mongoose.connect(db.mongoURI, { useNewUrlParser: true })
-    .then(() => console.log('MongoDB is connected Bitch...'))
-    .catch((err) => console.log(err))
+// console.log(db)
+// mongoose
+//     // .connect(db.mongoURI, { useNewUrlParser: true })
+//     .connect(db.mongoURI)
+//     .then(() => console.log('MongoDB is connected Bitch...', db))
+//     .catch((err) => console.log(err))
 
 
 //Passport Middleware 
@@ -38,12 +40,10 @@ app.use(passport.initialize());
 require('./src/config/passport')(passport);
 //using express to 'activate' body parser cors and morgan with App.use
 app.use('/users', users)
-app.use('/location', locations)
-app.use('/truckStops', truckStops)
+// app.use('/location', locations)
+// app.use('/truckStops', truckStops)
 app.use((err, req, res, next) => {
     res.status(err.status).json(err)
 })
 
-
-
-app.listen(port, () => { console.log(`your mom is on port ${port}`) }) 
+app.listen(port, () => console.log(`your mom is on port ${port}`)) 
