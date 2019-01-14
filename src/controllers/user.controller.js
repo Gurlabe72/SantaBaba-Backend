@@ -3,29 +3,6 @@ const model = require('../models/users.model')
 const validateRegisterInput = require("../validation/validation.register");
 // const validateLoginInput = require("../../validation/validation.login");
 
-
-// const getAllUsers = (req, res, next) => {
-//     let promise = model.getAllUsers()
-
-//     promise.then(result => {
-//         return result.err ? next(result) : res.status(200).json(result)
-//     })
-//     promise.catch(err => {
-//         next(err)
-//     })
-// }
-
-// const getOneUser = (req, res, next) => {
-//     const id = req.params.id;
-//     let promise = model.getOneUser(id)
-
-//     promise.then(result => {
-//         return result.err ? next(result) : res.status(200).json(result)
-//     })
-//     promise.catch(err => {
-//         next(err)
-//     })
-// }
 const createUser = (req, res, next) => {
     const body = req.body;
     // console.log(body);
@@ -44,7 +21,27 @@ const createUser = (req, res, next) => {
         next(error)
     })
 }
+const getAllUsers = (req, res, next) => {
+    let promise = model.getAllUsers()
+    console.log(getAllUsers)
+    promise.then(result => {
+        return result.error ? next(result) : res.status(200).json(result)
+    })
+    promise.catch(error => {
+        next(error)
+    })
+}
+// const getOneUser = (req, res, next) => {
+//     const id = req.params.id;
+//     let promise = model.getOneUser(id)
 
+//     promise.then(result => {
+//         return result.err ? next(result) : res.status(200).json(result)
+//     })
+//     promise.catch(err => {
+//         next(err)
+//     })
+// }
 // const deleteUser = (req, res, next) => {
 //     const id = req.params.id;
 //     let promise = model.deleteUser(id)
@@ -57,8 +54,8 @@ const createUser = (req, res, next) => {
 //     })
 // }
 module.exports = {
-    getAllUsers,
-    // getOneUser,
     createUser,
+    // getOneUser,
+    getAllUsers,
     // deleteUser
 }

@@ -3,27 +3,6 @@
 //to get an idea of what that looks like 
 // const bcrypt = require('bcryptjs')
 const { mConn, Users } = require('../schema/users.schema');
-
-const getAllUsers = () => {
-    return Users.find()
-        .then(users => {
-            return users
-        })
-}
-
-// const getOneUser = (id) => {
-//     return Users.findById({ _id: id })
-//         .then(user => {
-//             return user
-//         })
-// }
-
-const findByEmail = (email) => {
-    return Users.findOne({ _email: email })
-        .then(user => {
-            return user
-        })
-}
 const createUser = (userInfo) => {
     // console.log(userInfo, '#####')
     const newUser = new Users({
@@ -43,6 +22,28 @@ const createUser = (userInfo) => {
     })
     return newUser;
 }
+
+const getAllUsers = () => {
+    return mConn.collection(drivers).find()
+        .then(Users => {
+            return Users
+        })
+}
+
+// const getOneUser = (id) => {
+//     return Users.findById({ _id: id })
+//         .then(user => {
+//             return user
+//         })
+// }
+
+const findByEmail = (email) => {
+    return Users.findOne({ _email: email })
+        .then(user => {
+            return user
+        })
+}
+
 
 // const deleteUser = (id) => {
 //     return Users.findById({ _id: id })
