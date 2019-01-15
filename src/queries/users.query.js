@@ -34,12 +34,12 @@ const getAllUsers = () => {
         })
 }
 
-// const getOneUser = (id) => {
-//     return Users.findById({ _id: id })
-//         .then(user => {
-//             return user
-//         })
-// }
+const getOneUser = (id) => {
+    return Users.findById({ _id: id })
+        .then(user => {
+            return user
+        })
+}
 
 const findByEmail = (email) => {
     return Users.findOne({ _email: email })
@@ -57,7 +57,7 @@ const findByEmail = (email) => {
 // }
 module.exports = {
     getAllUsers,
-    // getOneUser,
+    getOneUser,
     findByEmail,
     createUser,
     // deleteUser

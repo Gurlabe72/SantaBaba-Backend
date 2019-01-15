@@ -28,15 +28,15 @@ const getAllUsers = () => {
     })
 }
 
-// const getOneUser = (id) => {
-//     let user = userQuery.getOneUser(id)
+const getOneUser = (id) => {
+    let user = userQuery.getOneUser(id)
 
-//     return user.then(result => {
-//         return result === null ?
-//             { err, status: 404 } :
-//             result
-//     })
-// }
+    return user.then(result => {
+        return result === null ?
+            { err, status: 404 } :
+            result
+    })
+}
 
 
 // const deleteUser = (id) => {
@@ -49,7 +49,7 @@ const getAllUsers = () => {
 
 module.exports = {
     getAllUsers,
-    // getOneUser,
+    getOneUser,
     createUser,
     // deleteUser
 }

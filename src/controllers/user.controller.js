@@ -33,17 +33,17 @@ const getAllUsers = (req, res, next) => {
         next(error)
     })
 }
-// const getOneUser = (req, res, next) => {
-//     const id = req.params.id;
-//     let promise = model.getOneUser(id)
+const getOneUser = (req, res, next) => {
+    const id = req.params.id;
+    let promise = model.getOneUser(id)
 
-//     promise.then(result => {
-//         return result.err ? next(result) : res.status(200).json(result)
-//     })
-//     promise.catch(err => {
-//         next(err)
-//     })
-// }
+    promise.then(result => {
+        return result.err ? next(result) : res.status(200).json(result)
+    })
+    promise.catch(err => {
+        next(err)
+    })
+}
 // const deleteUser = (req, res, next) => {
 //     const id = req.params.id;
 //     let promise = model.deleteUser(id)
@@ -57,7 +57,7 @@ const getAllUsers = (req, res, next) => {
 // }
 module.exports = {
     createUser,
-    // getOneUser,
+    getOneUser,
     getAllUsers,
     // deleteUser
 }
