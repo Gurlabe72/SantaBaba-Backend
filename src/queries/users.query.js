@@ -1,10 +1,6 @@
-//quieries is where you DEFINE all of your CRUD
-//functionalities. check out the example below 
-//to get an idea of what that looks like 
-// const bcrypt = require('bcryptjs')
 const { mConn, Users } = require('../schema/users.schema');
 const createUser = (userInfo) => {
-    // console.log(userInfo, '#####')
+
     const newUser = new Users({
         username: userInfo.username,
         name: userInfo.name,
@@ -49,16 +45,17 @@ const findByEmail = (email) => {
 }
 
 
-// const deleteUser = (id) => {
-//     return Users.findById({ _id: id })
-//         .then(user => {
-//             return !user ? { status: 404, error: 'user not found' } : user.remove()
-//         })
-// }
+const deleteUser = (id) => {
+    return Users.findById({ _id: id })
+        .then(user => {
+            return !user ? { status: 404, error: 'user not found' } : user.remove()
+        })
+}
+
 module.exports = {
     getAllUsers,
     getOneUser,
     findByEmail,
     createUser,
-    // deleteUser
+    deleteUser
 }

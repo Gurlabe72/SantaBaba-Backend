@@ -44,20 +44,21 @@ const getOneUser = (req, res, next) => {
         next(err)
     })
 }
-// const deleteUser = (req, res, next) => {
-//     const id = req.params.id;
-//     let promise = model.deleteUser(id)
 
-//     promise.then(result => {
-//         return result.err ? next(result) : res.status(200).json(result)
-//     })
-//     promise.catch(err => {
-//         next(err)
-//     })
-// }
+const deleteUser = (req, res, next) => {
+    const id = req.params.id;
+    let promise = model.deleteUser(id)
+
+    promise.then(result => {
+        return result.err ? next(result) : res.status(200).json(result)
+    })
+    promise.catch(err => {
+        next(err)
+    })
+}
 module.exports = {
     createUser,
     getOneUser,
     getAllUsers,
-    // deleteUser
+    deleteUser
 }

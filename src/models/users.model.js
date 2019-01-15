@@ -39,17 +39,17 @@ const getOneUser = (id) => {
 }
 
 
-// const deleteUser = (id) => {
-//     let user = userQuery.deleteUser(id)
+const deleteUser = (id) => {
+    let user = userQuery.deleteUser(id)
 
-//     return user.then(result => {
-//         return result
-//     })
-// }
+    return user.then(result => {
+        return result
+    })
+}
 
 module.exports = {
     getAllUsers,
     getOneUser,
     createUser,
-    // deleteUser
+    deleteUser
 }
