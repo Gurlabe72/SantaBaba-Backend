@@ -22,9 +22,11 @@ const createUser = (req, res, next) => {
     })
 }
 const getAllUsers = (req, res, next) => {
+    console.log('get all controller');
+
     let promise = model.getAllUsers()
-    console.log(getAllUsers)
     promise.then(result => {
+        console.log(result)
         return result.error ? next(result) : res.status(200).json(result)
     })
     promise.catch(error => {

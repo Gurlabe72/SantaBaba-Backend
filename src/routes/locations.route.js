@@ -5,9 +5,9 @@ const ctrl = require('../controllers/locations.controller')
 //You have to add ctrl.________<--- and you put your module.exports here for every CRUD 
 //The Routes for a user is written like so, below.
 
-router.get('/', ctrl.getAllLocations)
-router.get('/:id', ctrl.getOneLocation)
-router.delete('/:id', ctrl.deleteLocation)
 router.post('/', ctrl.createLocation)
+//router.get('/', ctrl.getAllLocations)
+//router.get('/:id', ctrl.getOneLocation)
+//router.delete('/:id', ctrl.deleteLocation)
 
 module.exports = router 

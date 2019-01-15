@@ -21,17 +21,17 @@ const users = require('./src/routes/users.route');
 // const truckStops = require('./src/routes/truckStops.route')
 
 
-// const mlabKey = require('../config/keys');
-// const db = require('./src/config/keys');
-// console.log(db)
+const mlabKey = require('./src/config/keys');
+const db = require('./src/config/keys');
+console.log(db)
 
 
-// console.log(db)
-// mongoose
-//     // .connect(db.mongoURI, { useNewUrlParser: true })
-//     .connect(db.mongoURI)
-//     .then(() => console.log('MongoDB is connected Bitch...', db))
-//     .catch((err) => console.log(err))
+console.log(db)
+mongoose
+    // .connect(db.mongoURI, { useNewUrlParser: true })
+    .connect(db.mongoURI)
+    .then(() => console.log('MongoDB is connected Bitch...', db))
+    .catch((err) => console.log(err))
 
 
 //Passport Middleware 

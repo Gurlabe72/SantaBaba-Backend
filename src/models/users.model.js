@@ -17,8 +17,10 @@ const createUser = async (userInfo) => {
 
 }
 const getAllUsers = () => {
-    let users = userQuery.getAllUsers();
+    console.log('get all model');
 
+    let users = userQuery.getAllUsers();
+    console.log(users)
     return users.then(result => {
         return result.length < 1 ?
             { status: 404 } :

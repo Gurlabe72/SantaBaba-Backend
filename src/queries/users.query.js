@@ -13,10 +13,10 @@ const createUser = (userInfo) => {
         // isDriver: userInfo.isDriver,
         // date: Date.now
     })
-    mConn.collection(drivers).insert(newUser)
+    mConn.collection('users').insert(newUser)
     newUser.save(function (err) {
         if (err) {
-            return next(err);
+            return err;
         }
         return
     })
@@ -24,9 +24,13 @@ const createUser = (userInfo) => {
 }
 
 const getAllUsers = () => {
-    return mConn.collection(drivers).find()
-        .then(Users => {
-            return Users
+    console.log('query');
+
+    return Users.find()
+        .then(users => {
+            console.log('users query', users);
+
+            return users
         })
 }
 
