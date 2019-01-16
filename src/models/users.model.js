@@ -16,14 +16,12 @@ const createUser = async (userInfo) => {
     return !user ? { error: 'error creating user' } : user
 
 }
-const getAllUsers = () => {
-    console.log('get all model');
 
+const getAllUsers = () => {
     let users = userQuery.getAllUsers();
-    console.log(users)
     return users.then(result => {
         return result.length < 1 ?
-            { status: 404 } :
+            { err, status: 404 } :
             result
     })
 }
@@ -37,7 +35,6 @@ const getOneUser = (id) => {
             result
     })
 }
-
 
 const deleteUser = (id) => {
     let user = userQuery.deleteUser(id)

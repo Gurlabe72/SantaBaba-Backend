@@ -1,31 +1,21 @@
-const { mConn, Users } = require('../schema/users.schema');
-const createUser = (userInfo) => {
+const Users = require('../schema/users.schema');
 
+const createUser = (userInfo) => {
     const newUser = new Users({
         username: userInfo.username,
         name: userInfo.name,
         email: userInfo.email,
-        password: userInfo.password
-        // isDriver: userInfo.isDriver,
-        // date: Date.now
+        password: userInfo.password,
+        isDriver: userInfo.isDriver,
+        date: new Date()
     })
-    mConn.collection('users').insert(newUser)
-    newUser.save(function (err) {
-        if (err) {
-            return err;
-        }
-        return
-    })
-    return newUser;
+    return newUser.save()
+        .then(user => user)
 }
 
 const getAllUsers = () => {
-    console.log('query');
-
     return Users.find()
         .then(users => {
-            console.log('users query', users);
-
             return users
         })
 }

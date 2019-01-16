@@ -1,29 +1,7 @@
 const model = require('../models/locations.model');
 
-const getAllLocations = (req, res, next) => {
-    let promise = model.getAllLocations()
-
-    promise.then(result => {
-        return result.err ? next(result) : res.status(200).json(result)
-    })
-    promise.catch(err => {
-        next(err)
-    })
-}
-const getOneLocation = (req, res, next) => {
-    const id = req.params.id;
-    let promise = model.getOneLocation(id)
-
-    promise.then(result => {
-        return result.err ? next(result) : res.status(200).json(result)
-    })
-    promise.catch(err => {
-        next(err)
-    })
-}
 const createLocation = (req, res, next) => {
-    const body = req;
-
+    const body = req.body;
     let promise = model.createLocation(body);
 
     promise.then(result => {
@@ -33,21 +11,42 @@ const createLocation = (req, res, next) => {
         next(error)
     })
 }
-
-const deleteLocation = (req, res, next) => {
-    const id = req.params.id;
-    let promise = model.deleteLocation(id)
+const getAllLocations = (req, res, next) => {
+    let promise = model.getAllLocations()
 
     promise.then(result => {
-        return result.err ? next(result) : res.status(200).json(result)
+        return result.error ? next(result) : res.status(200).json(result)
     })
-    promise.catch(err => {
-        next(err)
+    promise.catch(error => {
+        next(error)
     })
 }
+// const getOneLocation = (req, res, next) => {
+//     const id = req.params.id;
+//     let promise = model.getOneLocation(id)
+
+//     promise.then(result => {
+//         return result.err ? next(result) : res.status(200).json(result)
+//     })
+//     promise.catch(err => {
+//         next(err)
+//     })
+// }
+
+// const deleteLocation = (req, res, next) => {
+//     const id = req.params.id;
+//     let promise = model.deleteLocation(id)
+
+//     promise.then(result => {
+//         return result.err ? next(result) : res.status(200).json(result)
+//     })
+//     promise.catch(err => {
+//         next(err)
+//     })
+// }
 module.exports = {
-    getAllLocations,
-    getOneLocation,
     createLocation,
-    deleteLocation
+    getAllLocations
+    // getOneLocation,
+    // deleteLocation
 }
