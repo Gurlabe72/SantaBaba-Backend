@@ -18,7 +18,7 @@ app.use(morgan('dev'));
 //routes endpoints
 const users = require('./src/routes/users.route');
 const locations = require('./src/routes/locations.route');
-const truckStops = require('./src/routes/truckStops.route')
+//const truckStops = require('./src/routes/truckStops.route')
 //const onTheRoad = require('./src/routes/onTheRoad.route')
 // const shippingDocks = require('./src/routes/shippingDocks')
 
@@ -40,7 +40,7 @@ require('./src/config/passport')(passport);
 //using express to 'activate' body parser cors and morgan with App.use
 app.use('/users', users)
 app.use('/locations', locations)
-app.use('/truckStops', truckStops)
+//app.use('/truckStops', truckStops)
 //app.use('shippingDocks', shippingDocks)
 //app.use('/onTheRoad', onTheRoad)
 
