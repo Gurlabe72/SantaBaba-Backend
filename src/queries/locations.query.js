@@ -1,7 +1,14 @@
-//quieries is where you DEFINE all of your CRUD
-//functionalities. check out the example below 
-//to get an idea of what that looks like 
 const Locations = require('../schema/locations.schema');
+
+const createLocation = (locationInfo) => {
+    const newLocation = new Locations({
+        location: locationInfo.location,
+        postType: locationInfo.postType,
+        date: new Date()
+    })
+    return newLocation.save()
+        .then(location => location);
+}
 
 const getAllLocations = () => {
     return Locations.find()
@@ -17,15 +24,6 @@ const getOneLocation = (id) => {
         })
 }
 
-const createLocation = (id) => {
-    let Location = locationQuery.getlocation(id);
-
-    return Location.then(result => {
-        return result === null ?
-            { err, status: 404 } :
-            result
-    })
-}
 
 const deleteLocation = (id) => {
     return Locations.findById({ _id: id })
@@ -34,8 +32,8 @@ const deleteLocation = (id) => {
         })
 }
 module.exports = {
-    getAllLocations,
-    getOneLocation,
     createLocation,
-    deleteLocation
+    getAllLocations
+    // getOneLocation,
+    // deleteLocation
 }

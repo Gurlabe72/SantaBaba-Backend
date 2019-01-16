@@ -6,7 +6,7 @@ const ctrl = require('../controllers/locations.controller')
 //The Routes for a user is written like so, below.
 
 router.post('/', ctrl.createLocation)
-//router.get('/', ctrl.getAllLocations)
+router.get('/', ctrl.getAllLocations)
 //router.get('/:id', ctrl.getOneLocation)
 //router.delete('/:id', ctrl.deleteLocation)
 

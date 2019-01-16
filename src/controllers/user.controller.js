@@ -5,13 +5,6 @@ const validateRegisterInput = require("../validation/validation.register");
 
 const createUser = (req, res, next) => {
     const body = req.body;
-    // console.log(body);
-    // const { errors, isValid } = validateRegisterInput(body);
-    // //Checking validation
-    // if (!isValid) {
-    //     return res.status(400).json(errors)
-    // }
-
     let promise = model.createUser(body);
 
     promise.then(result => {
@@ -22,11 +15,9 @@ const createUser = (req, res, next) => {
     })
 }
 const getAllUsers = (req, res, next) => {
-    console.log('get all controller');
-
     let promise = model.getAllUsers()
+
     promise.then(result => {
-        console.log(result)
         return result.error ? next(result) : res.status(200).json(result)
     })
     promise.catch(error => {
