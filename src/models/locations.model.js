@@ -29,17 +29,17 @@ const getOneLocation = (id) => {
     })
 }
 
-// const deleteLocation = (id) => {
-//     let location = locationQuery.deleteLocation(id)
+const deleteLocation = (id) => {
+    let location = locationQuery.deleteLocation(id)
 
-//     return location.then(result => {
-//         return result
-//     })
-// }
+    return location.then(result => {
+        return result
+    })
+}
 
 module.exports = {
     createLocation,
     getAllLocations,
-    getOneLocation
-    // deleteLocation
+    getOneLocation,
+    deleteLocation
 }

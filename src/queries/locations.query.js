@@ -35,6 +35,6 @@ const deleteLocation = (id) => {
 module.exports = {
     createLocation,
     getAllLocations,
-    getOneLocation
-    // deleteLocation
+    getOneLocation,
+    deleteLocation
 }

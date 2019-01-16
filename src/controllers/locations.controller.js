@@ -33,20 +33,20 @@ const getOneLocation = (req, res, next) => {
     })
 }
 
-// const deleteLocation = (req, res, next) => {
-//     const id = req.params.id;
-//     let promise = model.deleteLocation(id)
+const deleteLocation = (req, res, next) => {
+    const id = req.params.id;
+    let promise = model.deleteLocation(id)
 
-//     promise.then(result => {
-//         return result.err ? next(result) : res.status(200).json(result)
-//     })
-//     promise.catch(err => {
-//         next(err)
-//     })
-// }
+    promise.then(result => {
+        return result.err ? next(result) : res.status(200).json(result)
+    })
+    promise.catch(err => {
+        next(err)
+    })
+}
 module.exports = {
     createLocation,
     getAllLocations,
-    getOneLocation
-    // deleteLocation
+    getOneLocation,
+    deleteLocation
 }

@@ -8,6 +8,6 @@ const ctrl = require('../controllers/locations.controller')
 router.post('/', ctrl.createLocation)
 router.get('/', ctrl.getAllLocations)
 router.get('/:id', ctrl.getOneLocation)
-//router.delete('/:id', ctrl.deleteLocation)
+router.delete('/:id', ctrl.deleteLocation)
 
 module.exports = router 
