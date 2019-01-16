@@ -1,7 +1,5 @@
-
 const userQuery = require('../queries/users.query');
 const bcrypt = require('bcryptjs');
-
 
 const createUser = async (userInfo) => {
     // console.log(userInfo, "im in the users model")

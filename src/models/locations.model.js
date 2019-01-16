@@ -19,15 +19,15 @@ const getAllLocations = () => {
     })
 }
 
-// const getOneLocation = (id) => {
-//     let location = locationQuery.getOneLocation(id)
+const getOneLocation = (id) => {
+    let location = locationQuery.getOneLocation(id)
 
-//     return location.then(result => {
-//         return result === null ?
-//             { err, status: 404 } :
-//             result
-//     })
-// }
+    return location.then(result => {
+        return result === null ?
+            { err, status: 404 } :
+            result
+    })
+}
 
 // const deleteLocation = (id) => {
 //     let location = locationQuery.deleteLocation(id)
@@ -39,7 +39,7 @@ const getAllLocations = () => {
 
 module.exports = {
     createLocation,
-    getAllLocations
-    // getOneLocation,
+    getAllLocations,
+    getOneLocation
     // deleteLocation
 }

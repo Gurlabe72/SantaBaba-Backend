@@ -31,9 +31,10 @@ const deleteLocation = (id) => {
             return !location ? { status: 404, error: 'location not found' } : location.remove()
         })
 }
+
 module.exports = {
     createLocation,
-    getAllLocations
-    // getOneLocation,
+    getAllLocations,
+    getOneLocation
     // deleteLocation
 }
