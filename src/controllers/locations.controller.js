@@ -2,6 +2,7 @@ const model = require('../models/locations.model');
 
 const createLocation = (req, res, next) => {
     const body = req.body;
+    console.log(req)
     let promise = model.createLocation(body);
 
     promise.then(result => {

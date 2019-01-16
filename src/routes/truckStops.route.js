@@ -5,9 +5,9 @@ const ctrl = require('../controllers/truckStops.controller')
 //You have to add ctrl.________<--- and you put your module.exports here for every CRUD 
 //The Routes for a user is written like so, below.
 
-router.get('/', ctrl.getAllTruckStops)
-router.get('/:id', ctrl.getOneTruckStop)
+// router.get('/', ctrl.getAllTruckStops)
+// router.get('/:id', ctrl.getOneTruckStop)
 router.post('/', ctrl.createTruckStop)
-router.delete('/:id', ctrl.deleteTruckStop)
+// router.delete('/:id', ctrl.deleteTruckStop)
 
 module.exports = router 

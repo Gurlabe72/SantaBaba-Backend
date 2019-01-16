@@ -9,21 +9,28 @@ const OnTheRoadsSchema = new Schema({
     }],
     locationId: [{
         type: Schema.Types.ObjectId,
-        ref: 'locations'
+        ref: 'location'
     }],
-    //accidents hazards and delays 
-    traffic: {
+    accidents: {
+        type: String,
+        required: true
+    },
+    hazards: {
+        type: String,
+        required: true
+    },
+    delays: {
         type: String,
         required: true
     },
     scaleOpen: {
-        type: Boolean,
+        type: String,
         required: true
     },
     date: {
         type: Date,
-        default: Date.now
+        required: true
     }
 });
 
-module.exports = truckStops = mongoose.model('onTheRoad', OnTheRoadsSchema);
+module.exports = OnTheRoad = mongoose.model('onTheRoad', OnTheRoadsSchema);

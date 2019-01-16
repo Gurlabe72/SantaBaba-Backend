@@ -1,5 +1,15 @@
 const onTheRoadQuery = require('../queries/onTheRoad.query');
 
+const createOnTheRoad = (onTheRoadInfo) => {
+    let onTheRoad = onTheRoadQuery.createOnTheRoad(onTheRoadInfo)
+
+    return onTheRoad.then(result => {
+        return !result
+            ? { error: 'error creating onTheRoad', status: 404 }
+            : result
+    })
+}
+
 const getAllOnTheRoads = () => {
     let onTheRoads = onTheRoadQuery.getAllOnTheRoads();
 
@@ -20,17 +30,6 @@ const getOneOnTheRoad = (id) => {
     })
 }
 
-const createOnTheRoad = (body) => {
-    console.log(body, "we are in the model")
-    let onTheRoad = onTheRoadQuery.createOnTheRoad(body)
-
-    return onTheRoad.then(result => {
-        return !result
-            ? { error: 'error creating onTheRoad', status: 404 }
-            : result
-    })
-}
-
 const deleteOnTheRoad = (id) => {
     let onTheRoad = onTheRoadQuery.deleteonTheRoad(id)
 
@@ -40,8 +39,8 @@ const deleteOnTheRoad = (id) => {
 }
 
 module.exports = {
-    getAllOnTheRoads,
-    getOneOnTheRoad,
-    createOnTheRoad,
-    deleteOnTheRoad
+    createOnTheRoad
+    // getAllOnTheRoads,
+    // getOneOnTheRoad,
+    // deleteOnTheRoad
 }

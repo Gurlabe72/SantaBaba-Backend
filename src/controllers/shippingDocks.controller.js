@@ -48,8 +48,8 @@ const deleteShippingDock = (req, res, next) => {
     })
 }
 module.exports = {
-    getAllShippingDocks,
-    getOneShippingDock,
+    // getAllShippingDocks,
+    // getOneShippingDock,
     createShippingDock,
-    deleteShippingDock
+    // deleteShippingDock
 }

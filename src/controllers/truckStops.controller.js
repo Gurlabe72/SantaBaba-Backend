@@ -48,8 +48,8 @@ const deleteTruckStop = (req, res, next) => {
     })
 }
 module.exports = {
-    getAllTruckStops,
-    getOneTruckStop,
-    createTruckStop,
-    deleteTruckStop
+    // getAllTruckStops,
+    // getOneTruckStop,
+    createTruckStop
+    // deleteTruckStop
 }

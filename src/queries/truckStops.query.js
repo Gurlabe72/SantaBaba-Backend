@@ -3,20 +3,6 @@
 //to get an idea of what that looks like 
 const TruckStops = require('../schema/truckStops.schema');
 
-const getAllTruckStops = () => {
-    return truckStops.find()
-        .then(truckStops => {
-            return truckStops
-        })
-}
-
-const getOneTruckStop = (id) => {
-    return TruckStops.findById({ _id: id })
-        .then(truckStop => {
-            return truckStop
-        })
-}
-
 const createTruckStop = (payload) => {
     const newTruckStop = new TruckStops({
         userId: payload.userId,
@@ -33,6 +19,21 @@ const createTruckStop = (payload) => {
     return newtruckStop;
 }
 
+const getAllTruckStops = () => {
+    return truckStops.find()
+        .then(truckStops => {
+            return truckStops
+        })
+}
+
+const getOneTruckStop = (id) => {
+    return TruckStops.findById({ _id: id })
+        .then(truckStop => {
+            return truckStop
+        })
+}
+
+
 const deleteTruckStop = (id) => {
     return truckStops.findById({ _id: id })
         .then(truckStop => {
@@ -40,8 +41,8 @@ const deleteTruckStop = (id) => {
         })
 }
 module.exports = {
-    getAllTruckStops,
-    getOneTruckStop,
+    // getAllTruckStops,
+    // getOneTruckStop,
     createTruckStop,
-    deleteTruckStop
+    // deleteTruckStop
 }

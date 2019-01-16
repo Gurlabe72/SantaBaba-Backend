@@ -3,6 +3,25 @@
 //to get an idea of what that looks like 
 const OnTheRoads = require('../schema/onTheRoad.schema');
 
+
+const createOnTheRoad = (onTheRoadInfo) => {
+    console.log(onTheRoadInfo, "we are iun the query")
+    const newOnTheRoad = new OnTheRoads({
+        userId: onTheRoadInfo.userId,
+        locationId: onTheRoadInfo.locationId,
+        accidents: onTheRoadInfo.accidents,
+        hazards: onTheRoadInfo.hazards,
+        delays: onTheRoadInfo.delays,
+        scaleOpen: onTheRoadInfo.scaleOpen,
+        date: new Date()
+    })
+    console.log(newOnTheRoad)
+    newOnTheRoad.save().catch(error => console.log(error)
+    )
+
+    return newOnTheRoad;
+}
+
 const getAllOnTheRoads = () => {
     return OnTheRoads.find()
         .then(onTheRoads => {
@@ -17,21 +36,6 @@ const getOneOnTheRoad = (id) => {
         })
 }
 
-const createOnTheRoad = (payload) => {
-    console.log(payload, "we are iun the query")
-    const newOnTheRoad = new OnTheRoads({
-        userId: payload.userId,
-        locationId: payload.locationId,
-        nicePost: payload.nicePost,
-        description: payload.description,
-        score: payload.score
-    })
-    console.log(newOnTheRoad)
-    newOnTheRoad.save().catch(error => console.log(error)
-    )
-
-    return newOnTheRoad;
-}
 
 const deleteOnTheRoad = (id) => {
     return OnTheRoads.findById({ _id: id })
@@ -40,8 +44,8 @@ const deleteOnTheRoad = (id) => {
         })
 }
 module.exports = {
-    getAllOnTheRoads,
-    getOneOnTheRoad,
-    createOnTheRoad,
-    deleteOnTheRoad
+    createOnTheRoad
+    // getAllOnTheRoads,
+    // getOneOnTheRoad,
+    // deleteOnTheRoad
 }

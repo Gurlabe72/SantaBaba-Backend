@@ -18,10 +18,10 @@ const TruckStopsSchema = new Schema({
         ref: 'locations'
     }],
     gasPrice: {
-        type: String,
-        required: true
+        type: Number,
+        min: 0, max: 10000
     },
-    parkingFee: {
+    parking: {
         type: Number,
         min: 0, max: 10000
     },

@@ -39,8 +39,8 @@ const deleteTruckStop = (id) => {
 }
 
 module.exports = {
-    getAllTruckStops,
-    getOneTruckStop,
+    // getAllTruckStops,
+    // getOneTruckStop,
     createTruckStop,
-    deleteTruckStop
+    // deleteTruckStop
 }
