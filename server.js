@@ -17,16 +17,13 @@ app.use(morgan('dev'));
 
 //routes endpoints
 const users = require('./src/routes/users.route');
-// const locations = require('./src/routes/locations.route');
+const locations = require('./src/routes/locations.route');
 // const truckStops = require('./src/routes/truckStops.route')
 
 
 const mlabKey = require('./src/config/keys');
 const db = require('./src/config/keys');
-console.log(db)
 
-
-console.log(db)
 mongoose
     // .connect(db.mongoURI, { useNewUrlParser: true })
     .connect(db.mongoURI)
@@ -40,7 +37,7 @@ app.use(passport.initialize());
 require('./src/config/passport')(passport);
 //using express to 'activate' body parser cors and morgan with App.use
 app.use('/users', users)
-// app.use('/location', locations)
+app.use('/locations', locations)
 // app.use('/truckStops', truckStops)
 app.use((err, req, res, next) => {
     res.status(err.status).json(err)
